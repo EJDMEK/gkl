@@ -32,123 +32,121 @@ const ContactPage: React.FC = () => {
         backgroundImage="/gkl fotografie doplneni/hriste z dronu9.jpeg"
       />
 
-          {/* Contact Info */}
-      <Section className="bg-neutral-cream/70 py-6">
+      {/* Contact Info */}
+      <Section className="bg-neutral-cream/70 py-6 md:py-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8">
+          {/* Contact Details and Opening Hours - Better Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8">
             {/* Contact Details */}
-            <Card>
-              <h2 className="text-2xl font-display font-bold text-primary-dark mb-6">
+            <Card className="lg:col-span-1">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-primary-dark mb-6">
                 Kontaktní údaje
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-5">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FiMapPin className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiMapPin className="w-7 h-7 text-primary" />
                   </div>
-                <div>
-                  <div className="text-sm text-neutral-dark mb-1">Adresa</div>
-                  <div className="text-primary-dark font-medium">
-                    Golfový klub Líšnice<br />
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-neutral-dark mb-1.5">Adresa</div>
+                    <div className="text-base text-primary-dark font-medium leading-relaxed">
+                      Golfový klub Líšnice<br />
                       Líšnice 94<br />
                       252 10 Líšnice<br />
-                    Česká republika
+                      Česká republika
                     </div>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FiPhone className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                    <div className="text-sm text-neutral-dark mb-1">Telefon</div>
-                    <a href="tel:+420318123456" className="text-primary-dark font-medium hover:text-primary transition-colors">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiPhone className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-neutral-dark mb-1.5">Telefon</div>
+                    <a href="tel:+420318123456" className="text-base text-primary-dark font-medium hover:text-primary transition-colors">
                       +420 318 123 456
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FiMail className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                    <div className="text-sm text-neutral-dark mb-1">Email</div>
-                    <a href="mailto:info@gkl.cz" className="text-primary-dark font-medium hover:text-primary transition-colors">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiMail className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-neutral-dark mb-1.5">Email</div>
+                    <a href="mailto:info@gkl.cz" className="text-base text-primary-dark font-medium hover:text-primary transition-colors break-all">
                       info@gkl.cz
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <FiClock className="w-6 h-6 text-primary" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <FiClock className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm font-semibold text-neutral-dark mb-1.5">GPS souřadnice</div>
+                    <div className="text-base text-primary-dark font-medium">49.8656° N, 14.2564° E</div>
+                  </div>
                 </div>
+              </div>
+            </Card>
+
+            {/* Opening Hours - Better organized */}
+            <Card className="lg:col-span-1">
+              <h2 className="text-2xl md:text-3xl font-display font-bold text-primary-dark mb-6">
+                Otevírací doba
+              </h2>
+              <div className="space-y-6">
+                {/* Golf Course Hours */}
                 <div>
-                  <div className="text-sm text-neutral-dark mb-1">GPS</div>
-                  <div className="text-primary-dark font-medium">49.8656° N, 14.2564° E</div>
+                  <h3 className="text-lg font-heading font-semibold text-primary-dark mb-3">
+                    GOLFOVÉ HŘIŠTĚ
+                  </h3>
+                  <div className="space-y-2">
+                    {openingHoursGolf.map((schedule, index) => (
+                      <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
+                        <span className="text-sm md:text-base text-neutral-dark">{schedule.day}</span>
+                        <span className="text-sm md:text-base text-primary-dark font-semibold">{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reception Hours */}
+                <div>
+                  <h3 className="text-lg font-heading font-semibold text-primary-dark mb-3">
+                    RECEPCE
+                  </h3>
+                  <div className="space-y-2">
+                    {openingHoursReception.map((schedule, index) => (
+                      <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
+                        <span className="text-sm md:text-base text-neutral-dark">{schedule.day}</span>
+                        <span className="text-sm md:text-base text-primary-dark font-semibold">{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Driving Range Hours */}
+                <div>
+                  <h3 className="text-lg font-heading font-semibold text-primary-dark mb-3">
+                    DRIVING RANGE
+                  </h3>
+                  <div className="space-y-2">
+                    {openingHoursDrivingRange.map((schedule, index) => (
+                      <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
+                        <span className="text-sm md:text-base text-neutral-dark">{schedule.day}</span>
+                        <span className="text-sm md:text-base text-primary-dark font-semibold">{schedule.hours}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </Card>
-
           </div>
-
-          {/* Opening Hours - Split into 3 sections */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
-            {/* Golf Course Hours */}
-            <Card>
-              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
-                GOLFOVÉ HŘIŠTĚ
-              </h2>
-              <div className="space-y-3">
-                {openingHoursGolf.map((schedule, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
-                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
-                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
-                  </div>
-                ))}
-              </div>
-            </Card>
-
-            {/* Reception Hours */}
-            <Card>
-              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
-                RECEPCE
-              </h2>
-              <div className="space-y-3">
-                {openingHoursReception.map((schedule, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
-                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
-                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
-                  </div>
-                ))}
-              </div>
-            </Card>
-
-            {/* Driving Range Hours */}
-            <Card>
-              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
-                DRIVING RANGE
-              </h2>
-              <div className="space-y-3">
-                {openingHoursDrivingRange.map((schedule, index) => (
-                  <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
-                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
-                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </div>
-
-          {/* Opening Hours Note */}
-          <Card className="bg-primary/5 border-primary/20">
-            <p className="text-sm text-neutral-dark italic text-center">
-              * Otevírací doba se může lišit v závislosti na počasí a sezóně. Pro aktuální informace nás prosím kontaktujte.
-            </p>
-          </Card>
 
           {/* Map */}
           <Card className="overflow-hidden p-0">

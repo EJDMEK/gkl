@@ -209,23 +209,34 @@ const CoursesPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Nákres jamky - nejdůležitější, velký a viditelný */}
+                {/* Nákres jamky - menší, kompaktní */}
                 {currentHole.planImage && (
-                  <div className="mb-6 sm:mb-8 rounded-xl overflow-hidden shadow-2xl border-2 sm:border-4 border-primary/40 bg-gradient-to-br from-white to-neutral-cream/30 p-4 sm:p-6 md:p-8">
-                    <div className="text-center mb-4 sm:mb-6">
-                      <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary-dark mb-2">
-                        Nákres jamky
-                      </h4>
-                      <div className="flex justify-center">
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
+                      Nákres jamky
+                    </h4>
+                    <div className="flex flex-col sm:flex-row gap-4 items-start">
+                      {/* Nákres - mnohem menší */}
+                      <div className="flex-shrink-0">
+                        <div className="bg-white rounded-lg border-2 border-primary/20 shadow-md p-2">
+                          <img 
+                            src={currentHole.planImage} 
+                            alt={`Nákres jamky ${currentHole.holeNumber9 || currentHole.number} - ${currentHole.name || ''}`}
+                            className="max-w-[180px] sm:max-w-[220px] md:max-w-[250px] h-auto object-contain"
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="w-full flex justify-center items-center bg-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-inner">
-                      <img 
-                        src={currentHole.planImage} 
-                        alt={`Nákres jamky ${currentHole.holeNumber9 || currentHole.number} - ${currentHole.name || ''}`}
-                        className="w-full max-w-5xl h-auto object-contain drop-shadow-lg"
-                        loading="lazy"
-                      />
+                      {/* Text vedle nákresu, pokud existuje */}
+                      {currentHole.description && (
+                        <div className="flex-1 text-neutral-dark leading-relaxed text-sm sm:text-base space-y-2">
+                          {currentHole.description.split('. ').filter(s => s.trim()).map((sentence, idx, arr) => (
+                            <p key={idx} className={idx === 0 ? 'font-medium text-primary-dark text-base sm:text-lg' : ''}>
+                              {sentence}{idx < arr.length - 1 ? '.' : ''}
+                            </p>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
@@ -244,44 +255,50 @@ const CoursesPage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Description a současné fotky - vždy viditelné současně */}
-                {(currentHole.description || (currentHole.images && currentHole.images.length > 0)) && (
+                {/* Současné fotky - pokud není description u nákresu */}
+                {currentHole.images && currentHole.images.length > 0 && !currentHole.description && (
                   <div className="mb-4 sm:mb-6">
-                    <div className={`grid ${currentHole.description && currentHole.images && currentHole.images.length > 0 ? 'md:grid-cols-2' : 'grid-cols-1'} gap-4 sm:gap-6`}>
-                      {/* Description */}
-                      {currentHole.description && (
-                        <div className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg space-y-2 sm:space-y-3">
-                          {currentHole.description.split('. ').filter(s => s.trim()).map((sentence, idx, arr) => (
-                            <p key={idx} className={idx === 0 ? 'font-medium text-primary-dark text-base sm:text-lg md:text-xl' : ''}>
-                              {sentence}{idx < arr.length - 1 ? '.' : ''}
-                            </p>
-                          ))}
+                    <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
+                      Současné fotky
+                    </h4>
+                    <div className={`grid ${currentHole.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-3 sm:gap-4`}>
+                      {currentHole.images.map((image, imgIdx) => (
+                        <div
+                          key={imgIdx}
+                          className="rounded-lg overflow-hidden border-2 border-primary/20 shadow-md"
+                        >
+                          <img 
+                            src={image} 
+                            alt={`${currentHole.name || `Jamka ${currentHole.number}`} - foto ${imgIdx + 1}`}
+                            className="w-full h-auto object-contain"
+                            loading="lazy"
+                          />
                         </div>
-                      )}
-                      
-                      {/* Současné fotky - větší, všechny, vždy viditelné */}
-                      {currentHole.images && currentHole.images.length > 0 && (
-                        <div>
-                          <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
-                            Současné fotky
-                          </h4>
-                          <div className={`grid ${currentHole.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-3 sm:gap-4`}>
-                            {currentHole.images.map((image, imgIdx) => (
-                              <div
-                                key={imgIdx}
-                                className="rounded-lg overflow-hidden border-2 border-primary/20 shadow-md"
-                              >
-                                <img 
-                                  src={image} 
-                                  alt={`${currentHole.name || `Jamka ${currentHole.number}`} - foto ${imgIdx + 1}`}
-                                  className="w-full h-auto object-contain"
-                                  loading="lazy"
-                                />
-                              </div>
-                            ))}
-                          </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Současné fotky - pokud je description u nákresu, zobrazit pod */}
+                {currentHole.images && currentHole.images.length > 0 && currentHole.description && (
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
+                      Současné fotky
+                    </h4>
+                    <div className={`grid ${currentHole.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-3 sm:gap-4`}>
+                      {currentHole.images.map((image, imgIdx) => (
+                        <div
+                          key={imgIdx}
+                          className="rounded-lg overflow-hidden border-2 border-primary/20 shadow-md"
+                        >
+                          <img 
+                            src={image} 
+                            alt={`${currentHole.name || `Jamka ${currentHole.number}`} - foto ${imgIdx + 1}`}
+                            className="w-full h-auto object-contain"
+                            loading="lazy"
+                          />
                         </div>
-                      )}
+                      ))}
                     </div>
                   </div>
                 )}

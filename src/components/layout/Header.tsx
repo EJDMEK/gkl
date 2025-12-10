@@ -57,11 +57,16 @@ const Header: React.FC = () => {
   }
 
   const changeLanguage = (lang: 'cs' | 'en') => {
-    const currentPath = location.pathname
-    const pathWithoutLang = currentPath.replace(/^\/(cs|en)/, '')
-    const newPath = `/${lang}${pathWithoutLang || ''}`
     setLanguage(lang)
-    navigate(newPath)
+    // Když přepínáme z angličtiny do češtiny, přesměruj na homepage
+    if (lang === 'cs' && language === 'en') {
+      navigate('/cs')
+    } else {
+      const currentPath = location.pathname
+      const pathWithoutLang = currentPath.replace(/^\/(cs|en)/, '')
+      const newPath = `/${lang}${pathWithoutLang || ''}`
+      navigate(newPath)
+    }
   }
 
 
@@ -96,8 +101,12 @@ const Header: React.FC = () => {
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-sm border-b border-neutral-light/30 transition-all duration-500 ${
-      isOnHero ? 'bg-white/95 border-white/30 shadow-lg' : ''
+    <header className={`fixed top-0 left-0 right-0 z-50 shadow-sm border-b border-neutral-light/30 transition-all duration-500 ${
+      isMobileMenuOpen 
+        ? 'bg-white shadow-lg' 
+        : isOnHero 
+          ? 'bg-white/98 backdrop-blur-md border-white/30 shadow-lg' 
+          : 'bg-white/98 backdrop-blur-md'
     }`}>
       <div className="container mx-auto px-4">
         {/* Desktop Header */}
@@ -179,7 +188,7 @@ const Header: React.FC = () => {
             <img 
               src="/2025_GKL_1928_logo.svg" 
               alt="GKL Logo" 
-              className="h-20 sm:h-24 md:h-28 w-auto object-contain"
+              className="h-32 sm:h-36 md:h-28 w-auto object-contain"
             />
           </Link>
 
@@ -244,8 +253,12 @@ const Header: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           />
           {/* Menu */}
-          <div className="fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md shadow-xl z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-neutral-light/50 md:hidden">
+          <div className="fixed top-16 left-0 right-0 bg-white shadow-xl z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-neutral-light/50 md:hidden">
             <nav className="flex flex-col">
+              {/* Nadpis Menu */}
+              <div className="px-6 py-4 border-b border-neutral-light/50 bg-neutral-cream/30">
+                <h2 className="text-xl font-display font-bold text-primary-dark">Menu</h2>
+              </div>
               {navItems.map((item) => (
                 <Link
                   key={item.key}

@@ -49,18 +49,21 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="about" className="bg-neutral-cream/70 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
-              About Golfový klub Líšnice
-            </h2>
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark">
+                About Golfový klub Líšnice
+              </h2>
+              <img 
+                src="/gkl-logo.png" 
+                alt="GKL Logo" 
+                className="h-8 md:h-10 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <img 
-                src="/2025_GKL_1928_logo.svg" 
-                alt="GKL Logo" 
-                className="h-16 w-auto object-contain mb-6"
-              />
               <p className="text-lg text-neutral-dark leading-relaxed mb-4">
                 Golfový klub Líšnice is one of the oldest and most prestigious golf clubs in the Czech Republic. Founded in 1928, our club has a rich history spanning nearly 100 years.
               </p>

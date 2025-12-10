@@ -29,11 +29,11 @@ const Hero: React.FC<HeroProps> = ({
         backgroundPosition: 'center top',
       }}
     >
-      {/* Velmi jemný overlay pro lepší čitelnost textu */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/15 sm:from-black/5 sm:via-transparent sm:to-black/10"></div>
+      {/* Overlay pro lepší čitelnost textu - ztmavený (stejné jako PageHero) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60"></div>
       
       {/* Hlavní obsah */}
-      <div className="relative z-10 text-center text-white px-4 sm:px-6 md:px-8 max-w-5xl mx-auto w-full pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-20 sm:pb-24">
+      <div className="relative z-10 text-center text-neutral-beige px-4 sm:px-6 md:px-8 max-w-5xl mx-auto w-full pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-20 sm:pb-24">
         {/* Logo nad nadpisem */}
         <div className="flex justify-center mb-6 sm:mb-8 md:mb-10 group animate-fade-in-down">
           <img 
@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({
         </div>
         
         {/* Nadpis - větší na mobilu */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-balance leading-[1.1] sm:leading-tight tracking-tight px-2 sm:px-4 group animate-fade-in-up animation-delay-100">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-balance leading-[1.1] sm:leading-tight tracking-tight px-2 sm:px-4 group animate-fade-in-up animation-delay-100 drop-shadow-lg text-neutral-beige">
           <span className="inline-block">
             {title}
           </span>
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({
         {/* Podnadpis - větší na mobilu */}
         {subtitle && (
           <div className="mb-5 sm:mb-6 md:mb-8 lg:mb-10 px-2 sm:px-4 group animate-fade-in-up animation-delay-200">
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 sm:text-neutral-beige max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-neutral-beige/95 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md">
               {subtitle}
             </p>
           </div>
@@ -93,7 +93,7 @@ const Hero: React.FC<HeroProps> = ({
                     window.location.href = cta2.link
                   }
                 }}
-                className="w-full md:w-auto md:min-w-[200px] lg:min-w-[220px] px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border-2 border-white/90 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-white/15 hover:border-white active:scale-[0.98] transition-all duration-500 ease-out backdrop-blur-sm shadow-lg min-h-[52px]"
+                className="w-full md:w-auto md:min-w-[200px] lg:min-w-[220px] px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border-2 border-neutral-beige/90 text-neutral-beige text-base sm:text-lg font-semibold rounded-lg hover:bg-neutral-beige/15 hover:border-neutral-beige active:scale-[0.98] transition-all duration-500 ease-out backdrop-blur-sm shadow-lg min-h-[52px]"
               >
                 {cta2.text}
               </button>
@@ -110,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({
                     window.location.href = cta3.link
                   }
                 }}
-                className="w-full md:w-auto md:min-w-[200px] lg:min-w-[220px] px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border-2 border-white/90 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-white/15 hover:border-white active:scale-[0.98] transition-all duration-500 ease-out backdrop-blur-sm shadow-lg min-h-[52px]"
+                className="w-full md:w-auto md:min-w-[200px] lg:min-w-[220px] px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent border-2 border-neutral-beige/90 text-neutral-beige text-base sm:text-lg font-semibold rounded-lg hover:bg-neutral-beige/15 hover:border-neutral-beige active:scale-[0.98] transition-all duration-500 ease-out backdrop-blur-sm shadow-lg min-h-[52px]"
               >
                 {cta3.text}
               </button>
@@ -123,7 +123,7 @@ const Hero: React.FC<HeroProps> = ({
       <div className="absolute bottom-6 sm:bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce hidden sm:block">
         <div className="relative">
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 text-white/80 hover:text-white transition-all duration-500 ease-out"
+            className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-beige/80 hover:text-neutral-beige transition-all duration-500 ease-out"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"

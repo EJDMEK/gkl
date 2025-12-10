@@ -51,6 +51,40 @@ const AboutPage: React.FC = () => {
     }
   }
 
+  // Funkce pro určení pohlaví podle jména
+  const getGenderFromName = (name: string): 'male' | 'female' => {
+    const firstName = name.split(' ')[0].toLowerCase()
+    const lastChar = firstName.slice(-1)
+    const lastTwoChars = firstName.slice(-2)
+    const lastThreeChars = firstName.slice(-3)
+    
+    // Speciální případy - známá ženská jména
+    const femaleNames = ['radana', 'radmila', 'marie', 'jana', 'petra', 'lenka', 'eva', 'hana', 'zuzana', 'tereza', 'katerina', 'veronika', 'monika', 'lucie', 'barbora', 'adela', 'klara', 'sarka']
+    
+    if (femaleNames.includes(firstName)) {
+      return 'female'
+    }
+    
+    if (lastChar === 'a' && !['osa', 'usa', 'isa'].includes(lastThreeChars)) {
+      return 'female'
+    }
+    
+    if (lastTwoChars === 'ová' || lastThreeChars === 'ová') {
+      return 'female'
+    }
+    
+    return 'male'
+  }
+
+  // Funkce pro získání správné pozice podle pohlaví
+  const getPositionText = (position: string, name: string): string => {
+    if (position === 'Člen výboru') {
+      const gender = getGenderFromName(name)
+      return gender === 'female' ? 'Členka výboru' : 'Člen výboru'
+    }
+    return position
+  }
+
   return (
     <div>
       {/* Hero Title */}
@@ -396,7 +430,7 @@ const AboutPage: React.FC = () => {
                   <h3 className="text-base font-heading font-semibold text-primary-dark mb-1">
                     {leader.name}
                   </h3>
-                  <p className="text-sm text-secondary font-medium">{leader.position}</p>
+                  <p className="text-sm text-secondary font-medium">{getPositionText(leader.position, leader.name)}</p>
                 </Card>
               ))}
             </div>
