@@ -24,9 +24,10 @@ const Hero: React.FC<HeroProps> = ({
   
   return (
     <div
-      className="relative h-screen min-h-[600px] flex items-center justify-center bg-cover bg-center bg-fixed sm:bg-fixed bg-no-repeat"
+      className="relative h-screen min-h-[600px] flex items-center justify-center bg-cover bg-top bg-fixed sm:bg-fixed bg-no-repeat"
       style={{
         backgroundImage: `url(${escapedImagePath})`,
+        backgroundPosition: 'center top',
       }}
     >
       {/* Velmi jemný overlay pro lepší čitelnost textu */}

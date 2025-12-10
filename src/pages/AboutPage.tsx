@@ -5,6 +5,7 @@ import Card from '../components/ui/Card'
 import Divider from '../components/ui/Divider'
 import FlowerDecoration from '../components/ui/FlowerDecoration'
 import PageHero from '../components/ui/PageHero'
+import FilterButtons from '../components/ui/FilterButtons'
 import { clubHistory } from '../data/clubHistory'
 import { leaders } from '../data/leaders'
 import { memberships } from '../data/memberships'
@@ -56,68 +57,21 @@ const AboutPage: React.FC = () => {
       {/* Hero Title */}
       <PageHero 
         title={t('about.hero.title')}
-        backgroundImage="/gkl fotografie doplneni/hriste z dronu3.jpeg"
+        backgroundImage="/gkl fotografie doplneni/hriste z dronu1.jpeg"
       />
 
       {/* Filtry */}
-      <div className="bg-neutral-cream/70 py-4">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                onClick={() => handleFilterClick('all')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'all'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Vše
-              </button>
-              <button
-                onClick={() => handleFilterClick('clenstvi')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'clenstvi'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Členství
-              </button>
-              <button
-                onClick={() => handleFilterClick('poplatky')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'poplatky'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Poplatky
-              </button>
-              <button
-                onClick={() => handleFilterClick('historie')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'historie'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Historie
-              </button>
-              <button
-                onClick={() => handleFilterClick('vedeni')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'vedeni'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Vedení
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <FilterButtons
+        filters={[
+          { id: 'all', label: 'Vše' },
+          { id: 'clenstvi', label: 'Členství' },
+          { id: 'poplatky', label: 'Poplatky' },
+          { id: 'historie', label: 'Historie' },
+          { id: 'vedeni', label: 'Vedení' },
+        ]}
+        selectedFilter={selectedFilter}
+        onFilterClick={handleFilterClick}
+      />
 
       {/* Úvod o klubu a členství - první sekce */}
       <Section id="clenstvi" className="bg-neutral-cream/70 py-6">

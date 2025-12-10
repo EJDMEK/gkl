@@ -118,15 +118,25 @@ const NewsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Kategorie - minimalistické */}
-            <div className="flex flex-wrap items-center gap-2">
+            {/* Kategorie */}
+            <div className="flex flex-wrap items-center gap-2 md:gap-3">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedCategory === 'all'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
+                className={`
+                  px-4 md:px-5 py-2.5 md:py-3 
+                  text-sm md:text-base 
+                  font-semibold 
+                  rounded-lg 
+                  transition-all 
+                  duration-300 
+                  ease-out
+                  min-h-[44px]
+                  ${
+                    selectedCategory === 'all'
+                      ? 'bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg scale-[1.05] ring-2 ring-primary/30'
+                      : 'bg-white/90 text-primary-dark border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98] shadow-sm'
+                  }
+                `}
               >
                 Vše
               </button>
@@ -134,17 +144,27 @@ const NewsPage: React.FC = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                    selectedCategory === category
-                      ? 'bg-primary text-white'
-                      : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                  }`}
+                  className={`
+                    px-4 md:px-5 py-2.5 md:py-3 
+                    text-sm md:text-base 
+                    font-semibold 
+                    rounded-lg 
+                    transition-all 
+                    duration-300 
+                    ease-out
+                    min-h-[44px]
+                    ${
+                      selectedCategory === category
+                        ? 'bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg scale-[1.05] ring-2 ring-primary/30'
+                        : 'bg-white/90 text-primary-dark border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98] shadow-sm'
+                    }
+                  `}
                 >
                   {category}
                 </button>
               ))}
               {filteredAndSortedNews.length > 0 && (
-                <span className="ml-auto text-xs text-neutral-dark/70">
+                <span className="ml-auto text-sm md:text-base text-neutral-dark/70 font-medium">
                   {filteredAndSortedNews.length} {filteredAndSortedNews.length === 1 ? 'aktualita' : filteredAndSortedNews.length < 5 ? 'aktuality' : 'aktualit'}
                 </span>
               )}

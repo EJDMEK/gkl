@@ -71,8 +71,8 @@ const HomePage: React.FC = () => {
         <Hero
         title={t('home.hero.title')}
         subtitle={t('home.hero.subtitle')}
-        cta1={{ text: t('home.hero.cta1'), link: getPath(language === 'cs' ? '/hriste' : '/courses') }}
-        cta2={{ text: t('home.hero.cta2'), link: getPath(language === 'cs' ? '/cenik' : '/pricing') }}
+        cta1={{ text: t('home.hero.cta1'), link: 'https://tycko.cz/rezervace/gklis' }}
+        cta2={{ text: t('home.hero.cta2'), link: getPath(language === 'cs' ? '/klub' : '/club') }}
         cta3={{ text: t('home.hero.cta3'), link: getPath(language === 'cs' ? '/kontakt' : '/contact') }}
         backgroundImage="/gkl fotografie doplneni/hriste z dronu1.jpeg"
         />
@@ -83,10 +83,10 @@ const HomePage: React.FC = () => {
 
       {/* About Preview */}
       <Section className="bg-neutral-cream/70 py-6 md:py-8">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
             <div className="order-2 md:order-1 animate-fade-in-left">
-              <div className="flex items-center gap-2 sm:gap-3 mb-4">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary-dark">
                   {t('home.about.title')}
                 </h2>
@@ -94,10 +94,11 @@ const HomePage: React.FC = () => {
                   src="/gkl-logo.png" 
                   alt="GKL Logo" 
                   className="h-6 sm:h-7 md:h-8 lg:h-10 w-auto object-contain"
+                  loading="lazy"
                 />
               </div>
-              <div className="mb-6 flex justify-start"><FlowerDecoration size="sm" /></div>
-              <p className="text-lg text-neutral-dark mb-6 leading-relaxed">
+              <div className="mb-4 sm:mb-6 flex justify-start"><FlowerDecoration size="sm" /></div>
+              <p className="text-base sm:text-lg text-neutral-dark mb-4 sm:mb-6 leading-relaxed">
                 {t('home.about.description')}
               </p>
               <Link to={getPath(language === 'cs' ? '/klub' : '/club')}>
@@ -113,6 +114,7 @@ const HomePage: React.FC = () => {
                     src="/about-club.jpg" 
                     alt="Golfový klub Líšnice"
                     className="w-full h-full object-cover transition-transform duration-600 group-hover:scale-105"
+                    loading="lazy"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/20 to-transparent pointer-events-none"></div>
@@ -137,10 +139,10 @@ const HomePage: React.FC = () => {
 
       {/* Aktuality */}
       <Section className="bg-neutral-cream/70 py-6 md:py-8">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4 sm:mb-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary-dark mb-2">
                 {t('home.news.title')}
               </h2>
               <div className="flex justify-center"><FlowerDecoration size="sm" /></div>
@@ -151,7 +153,7 @@ const HomePage: React.FC = () => {
               </Button>
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {news.slice(0, 3).map((item, idx) => (
               <Card 
                 key={item.id} 

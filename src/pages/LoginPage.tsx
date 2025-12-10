@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
                 <p className="text-neutral-dark">
                   {language === 'cs' 
                     ? 'Přihlaste se do členské sekce Golfového klubu Líšnice' 
-                    : 'Login to the member section of Golf Club Líšnice'}
+                    : 'Login to the member section of Golfový klub Líšnice'}
                 </p>
               </div>
 

@@ -257,20 +257,36 @@ const TournamentsPage: React.FC = () => {
                           </div>
                         )}
 
-                        <Link 
-                          to={getPath(`/souteze/${tournament.id}`)}
-                          className="mt-auto"
-                        >
-                          <Button 
-                            variant="tertiary" 
-                            size="sm" 
-                            className="w-full" 
-                            icon={<FiArrowRight />} 
-                            iconPosition="right"
+                        <div className="mt-auto flex flex-col gap-2">
+                          <Link 
+                            to={getPath(`/souteze/${tournament.id}`)}
+                            className="w-full"
                           >
-                            Detail turnaje
-                          </Button>
-                        </Link>
+                            <Button 
+                              variant="tertiary" 
+                              size="sm" 
+                              className="w-full" 
+                              icon={<FiArrowRight />} 
+                              iconPosition="right"
+                            >
+                              Detail turnaje
+                            </Button>
+                          </Link>
+                          {tournament.images && tournament.images.length > 0 && (
+                            <Link 
+                              to={getPath(`/souteze/${tournament.id}#gallery`)}
+                              className="w-full"
+                            >
+                              <Button 
+                                variant="secondary" 
+                                size="sm" 
+                                className="w-full" 
+                              >
+                                Fotogalerie
+                              </Button>
+                            </Link>
+                          )}
+                        </div>
                       </Card>
                     ))}
                   </div>

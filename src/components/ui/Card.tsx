@@ -17,7 +17,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Card: React.FC<CardProps> = ({ children, className = '', hover = true, animated = false, withBackground = false, ...props }) => {
   const baseStyles = 'bg-white/90 rounded-xl shadow-md p-4 sm:p-5 md:p-6 lg:p-8 text-sm sm:text-base'
-  const hoverStyles = hover ? 'transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-0.5' : ''
+  const hoverStyles = hover ? 'transition-all duration-500 ease-out hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.98]' : ''
   const animatedStyles = animated ? 'animate-fade-in-up' : ''
   const backgroundStyles = withBackground ? 'relative overflow-hidden' : ''
   

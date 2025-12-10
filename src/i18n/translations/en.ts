@@ -12,7 +12,7 @@ export const en = {
   },
   home: {
     hero: {
-      title: 'Golf Club Líšnice',
+      title: 'Golfový klub Líšnice',
       subtitle: 'Since 1928, we have been creating unforgettable golf experiences in the heart of the Czech Republic',
       cta1: 'Book tee time',
       cta2: 'Become a member',
@@ -20,7 +20,7 @@ export const en = {
     },
     about: {
       title: 'About',
-      description: 'Golf Club Líšnice is one of the oldest and most prestigious golf clubs in the Czech Republic. Our nine-hole course is located approximately 15 km from Prague and offers a unique golfing experience in a beautiful natural setting.',
+      description: 'Golfový klub Líšnice is one of the oldest and most prestigious golf clubs in the Czech Republic. Our nine-hole course is located approximately 15 km from Prague and offers a unique golfing experience in a beautiful natural setting.',
       more: 'Learn more',
     },
     courses: {
@@ -188,6 +188,6 @@ export const en = {
     subscribe: 'Subscribe',
     email: 'Email',
     social: 'Follow Us',
-    copyright: '© 2025 Golf Club Líšnice. All rights reserved.',
+    copyright: '© 2025 Golfový klub Líšnice. All rights reserved.',
   },
 }

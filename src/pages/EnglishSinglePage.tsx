@@ -26,7 +26,7 @@ const EnglishSinglePage: React.FC = () => {
       {/* Hero Section */}
       <div data-hero-section>
         <Hero
-          title="Golf Club Líšnice"
+          title="Golfový klub Líšnice"
           subtitle="Since 1928, we have been creating unforgettable golf experiences in the heart of the Czech Republic"
           cta1={{ text: 'Contact Us', link: '#contact' }}
           cta2={{ text: 'View Course', link: '#course' }}
@@ -54,7 +54,7 @@ const EnglishSinglePage: React.FC = () => {
               <FlowerDecoration size="md" />
             </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
-              About Golf Club Líšnice
+              About Golfový klub Líšnice
             </h2>
             <div className="flex justify-center mt-4">
               <FlowerDecoration size="sm" />
@@ -69,7 +69,7 @@ const EnglishSinglePage: React.FC = () => {
                 className="h-16 w-auto object-contain mb-6"
               />
               <p className="text-lg text-neutral-dark leading-relaxed mb-4">
-                Golf Club Líšnice is one of the oldest and most prestigious golf clubs in the Czech Republic. Founded in 1928, our club has a rich history spanning nearly 100 years.
+                Golfový klub Líšnice is one of the oldest and most prestigious golf clubs in the Czech Republic. Founded in 1928, our club has a rich history spanning nearly 100 years.
               </p>
               <p className="text-lg text-neutral-dark leading-relaxed mb-4">
                 Our 18-hole championship course is located approximately 15 km from Prague, offering a unique golfing experience in a beautiful natural setting with exceptional views of the surrounding landscape.
@@ -358,7 +358,7 @@ const EnglishSinglePage: React.FC = () => {
                   <div>
                     <div className="text-sm text-neutral-dark mb-1">Address</div>
                     <div className="text-primary-dark font-medium">
-                      Golf Club Líšnice<br />
+                      Golfový klub Líšnice<br />
                       Líšnice 94<br />
                       252 10 Líšnice<br />
                       Czech Republic
@@ -416,7 +416,7 @@ const EnglishSinglePage: React.FC = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Golf Club Líšnice - map"
+                title="Golfový klub Líšnice - map"
               />
             </div>
             <div className="p-4 bg-neutral-cream/70 border-t border-neutral-light">

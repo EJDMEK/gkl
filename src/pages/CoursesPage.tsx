@@ -6,6 +6,7 @@ import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
 import FlowerDecoration from '../components/ui/FlowerDecoration'
 import PageHero from '../components/ui/PageHero'
+import FilterButtons from '../components/ui/FilterButtons'
 import { courses } from '../data/courses'
 import { courseInfo } from '../data/courseInfo'
 import { FiInfo, FiFlag, FiTarget, FiX, FiChevronLeft, FiChevronRight, FiFileText, FiBook, FiShield } from 'react-icons/fi'
@@ -84,84 +85,19 @@ const CoursesPage: React.FC = () => {
       />
 
       {/* Filtry */}
-      <div className="bg-neutral-cream/70 py-4">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                onClick={() => handleFilterClick('all')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'all'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Vše
-              </button>
-              <button
-                onClick={() => handleFilterClick('technicke-parametry')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'technicke-parametry'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Technické parametry
-              </button>
-              <button
-                onClick={() => handleFilterClick('jamky')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'jamky'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Jamky
-              </button>
-              <button
-                onClick={() => handleFilterClick('score-card')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'score-card'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Score card
-              </button>
-              <button
-                onClick={() => handleFilterClick('mistni-pravidla')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'mistni-pravidla'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Místní pravidla
-              </button>
-              <button
-                onClick={() => handleFilterClick('provozni-rad')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'provozni-rad'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Provozní řád
-              </button>
-              <button
-                onClick={() => handleFilterClick('zajimavosti')}
-                className={`px-3 py-2 text-xs font-medium rounded-full transition-all min-h-[44px] ${
-                  selectedFilter === 'zajimavosti'
-                    ? 'bg-primary text-white'
-                    : 'bg-white/80 text-neutral-dark border border-primary/20 hover:bg-primary/10 active:bg-primary/20'
-                }`}
-              >
-                Zajímavosti
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <FilterButtons
+        filters={[
+          { id: 'all', label: 'Vše' },
+          { id: 'technicke-parametry', label: 'Technické parametry' },
+          { id: 'jamky', label: 'Jamky' },
+          { id: 'score-card', label: 'Score card' },
+          { id: 'mistni-pravidla', label: 'Místní pravidla' },
+          { id: 'provozni-rad', label: 'Provozní řád' },
+          { id: 'zajimavosti', label: 'Zajímavosti' },
+        ]}
+        selectedFilter={selectedFilter}
+        onFilterClick={handleFilterClick}
+      />
 
       {/* Technical Parameters */}
       <Section id="technicke-parametry" className="bg-neutral-cream/70 py-4 md:py-6">
@@ -210,13 +146,13 @@ const CoursesPage: React.FC = () => {
           </div>
 
           {/* Filtrování podle čísel jamek - nahoře */}
-          <div className="mb-8">
-            <div className="text-center mb-4">
-              <p className="text-sm md:text-base text-neutral-dark mb-3">
+          <div className="mb-6 sm:mb-8">
+            <div className="text-center mb-3 sm:mb-4">
+              <p className="text-sm sm:text-base md:text-lg text-neutral-dark mb-3 font-medium">
                 Vyberte jamku:
               </p>
             </div>
-            <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5 md:gap-3">
               {Array.from({ length: 9 }, (_, i) => i + 1).map((holeNum) => {
                 const hole = selectedCourse.holesDetail.find(h => 
                   h.holeNumber9 === holeNum
@@ -231,13 +167,25 @@ const CoursesPage: React.FC = () => {
                       setSelectedHole(holeNum)
                     }}
                     disabled={!hasHole}
-                    className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-bold text-base sm:text-lg transition-all min-h-[48px] min-w-[48px] ${
-                      !hasHole
-                        ? 'opacity-50 cursor-not-allowed bg-neutral-light text-neutral-dark'
-                        : selectedHole === holeNum
-                        ? 'bg-primary text-white shadow-lg scale-[1.02]'
-                        : 'bg-white/80 text-primary border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98] transition-all duration-500 ease-out'
-                    }`}
+                    className={`
+                      px-4 sm:px-5 py-2.5 sm:py-3 
+                      rounded-lg 
+                      font-bold 
+                      text-base sm:text-lg 
+                      transition-all 
+                      duration-300 
+                      ease-out
+                      min-h-[48px] 
+                      min-w-[48px]
+                      touch-manipulation
+                      ${
+                        !hasHole
+                          ? 'opacity-40 cursor-not-allowed bg-neutral-light text-neutral-dark'
+                          : selectedHole === holeNum
+                          ? 'bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg scale-[1.05] ring-2 ring-primary/30'
+                          : 'bg-white/90 text-primary-dark border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-[1.02] active:scale-[0.98] shadow-sm'
+                      }
+                    `}
                   >
                     {holeNum}
                   </button>
@@ -296,45 +244,25 @@ const CoursesPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* PDF mapa jamky z cedule - prioritní */}
-                {currentHole.cedulePdf && (
-                  <div className="mb-6 rounded-xl overflow-hidden shadow-xl border-2 border-primary/20 bg-neutral-cream/70">
-                    <div className="p-4 bg-gradient-to-r from-primary/5 to-secondary/5 border-b border-primary/10">
-                      <h4 className="text-lg font-heading font-semibold text-primary-dark">
-                        Mapa jamky
+                {/* Nákres jamky - nejdůležitější, velký a viditelný */}
+                {currentHole.planImage && (
+                  <div className="mb-6 sm:mb-8 rounded-xl overflow-hidden shadow-2xl border-2 sm:border-4 border-primary/40 bg-gradient-to-br from-white to-neutral-cream/30 p-4 sm:p-6 md:p-8">
+                    <div className="text-center mb-4 sm:mb-6">
+                      <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary-dark mb-2">
+                        Nákres jamky
                       </h4>
+                      <div className="flex justify-center">
+                        <FlowerDecoration size="sm" />
+                      </div>
                     </div>
-                    <div className="w-full" style={{ height: '300px' }}>
-                      <iframe
-                        src={currentHole.cedulePdf}
-                        className="w-full h-full"
-                        title={`Mapa jamky ${currentHole.holeNumber9 || currentHole.number}`}
+                    <div className="w-full flex justify-center items-center bg-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-inner">
+                      <img 
+                        src={currentHole.planImage} 
+                        alt={`Nákres jamky ${currentHole.holeNumber9 || currentHole.number} - ${currentHole.name || ''}`}
+                        className="w-full max-w-5xl h-auto object-contain drop-shadow-lg"
+                        loading="lazy"
                       />
                     </div>
-                    <div className="p-3 bg-neutral-cream/70 border-t border-primary/10 text-center">
-                      <a
-                        href={currentHole.cedulePdf}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-primary hover:text-primary-dark font-medium transition-colors inline-flex items-center gap-2"
-                      >
-                        Otevřít mapu v novém okně
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                )}
-
-                {/* Plán jamky - hlavní, velký (fallback pokud není PDF) */}
-                {!currentHole.cedulePdf && currentHole.planImage && (
-                  <div className="mb-6 rounded-xl overflow-hidden shadow-xl border-2 border-primary/20">
-                    <img 
-                      src={currentHole.planImage} 
-                      alt={`Plán jamky ${currentHole.holeNumber9 || currentHole.number} - ${currentHole.name || ''}`}
-                      className="w-full h-auto object-contain bg-neutral-cream/70"
-                    />
                   </div>
                 )}
 
@@ -352,37 +280,55 @@ const CoursesPage: React.FC = () => {
                   </div>
                 )}
 
-                {/* Současné fotky */}
-                {currentHole.images && currentHole.images.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-lg font-heading font-semibold text-primary-dark mb-3">
-                      Současné fotky
-                    </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                      {currentHole.images.map((image, imgIdx) => (
-                        <div
-                          key={imgIdx}
-                          onClick={() => openLightbox(currentHole.number, imgIdx)}
-                          className="aspect-video rounded-lg overflow-hidden border border-primary/10 shadow-sm hover:shadow-lg transition-all duration-500 ease-out cursor-pointer group"
-                        >
-                          <img 
-                            src={image} 
-                            alt={`${currentHole.name || `Jamka ${currentHole.number}`} - foto ${imgIdx + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                          />
+                {/* Description a současné fotky - vždy viditelné současně */}
+                {(currentHole.description || (currentHole.images && currentHole.images.length > 0)) && (
+                  <div className="mb-4 sm:mb-6">
+                    <div className={`grid ${currentHole.description && currentHole.images && currentHole.images.length > 0 ? 'md:grid-cols-2' : 'grid-cols-1'} gap-4 sm:gap-6`}>
+                      {/* Description */}
+                      {currentHole.description && (
+                        <div className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg space-y-2 sm:space-y-3">
+                          {currentHole.description.split('. ').filter(s => s.trim()).map((sentence, idx, arr) => (
+                            <p key={idx} className={idx === 0 ? 'font-medium text-primary-dark text-base sm:text-lg md:text-xl' : ''}>
+                              {sentence}{idx < arr.length - 1 ? '.' : ''}
+                            </p>
+                          ))}
                         </div>
-                      ))}
+                      )}
+                      
+                      {/* Současné fotky - větší, všechny, vždy viditelné */}
+                      {currentHole.images && currentHole.images.length > 0 && (
+                        <div>
+                          <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
+                            Současné fotky
+                          </h4>
+                          <div className={`grid ${currentHole.images.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'} gap-3 sm:gap-4`}>
+                            {currentHole.images.map((image, imgIdx) => (
+                              <div
+                                key={imgIdx}
+                                className="rounded-lg overflow-hidden border-2 border-primary/20 shadow-md"
+                              >
+                                <img 
+                                  src={image} 
+                                  alt={`${currentHole.name || `Jamka ${currentHole.number}`} - foto ${imgIdx + 1}`}
+                                  className="w-full h-auto object-contain"
+                                  loading="lazy"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )}
 
                 {/* Historické fotky */}
                 {currentHole.historicalImages && currentHole.historicalImages.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-lg font-heading font-semibold text-primary-dark mb-3">
+                  <div className="mb-4 sm:mb-6">
+                    <h4 className="text-base sm:text-lg font-heading font-semibold text-primary-dark mb-3">
                       Historické fotky
                     </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
                       {currentHole.historicalImages.map((image, imgIdx) => (
                         <div
                           key={imgIdx}
@@ -392,21 +338,11 @@ const CoursesPage: React.FC = () => {
                             src={image} 
                             alt={`${currentHole.name || `Jamka ${currentHole.number}`} - historická fotka ${imgIdx + 1}`}
                             className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                            loading="lazy"
                           />
                         </div>
                       ))}
                     </div>
-                  </div>
-                )}
-
-                {/* Description */}
-                {currentHole.description && (
-                  <div className="text-neutral-dark leading-relaxed text-base md:text-lg space-y-3">
-                    {currentHole.description.split('. ').filter(s => s.trim()).map((sentence, idx, arr) => (
-                      <p key={idx} className={idx === 0 ? 'font-medium text-primary-dark text-lg md:text-xl' : ''}>
-                        {sentence}{idx < arr.length - 1 ? '.' : ''}
-                      </p>
-                    ))}
                   </div>
                 )}
               </Card>

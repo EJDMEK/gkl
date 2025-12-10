@@ -19,7 +19,7 @@ export const courses: Course[] = [
         handicap: 7,
         name: 'JAMKA ZAKLADATELŮ',
         description: 'Jamka je věnována dvanácti zakládajícím členům Golfového klubu Líšnice. Těchto 12 zakládajících členů založilo dne 21. 11. 1928 v bytě Adolfa Hoffmeistera ve Spálené ul. č. 82/4 Golfový klub Líšnice. Zakládajícími členy byli: Jaroslav O. Franta, Richard Hampl, Ladislav Haškovec, Jaroslav Hilbert, Adolf Hoffmeister, Jiří Chvojka, Karel Mikšíček, Prokop Sedlák, Vladimír Sedlák, Karel Vaněk, Ludvík Vaněk a Karel Vávra. Prvním prezidentem klubu byl zvolen Karel Vávra, který tuto funkci vykonával jeden rok. V pořadí druhým prezidentem GKL byl JUDr. Ferdinand Tonder, který také vykonával prezidentskou funkci jeden rok.',
-        planImage: '/courses/jamka-1.png', // Plán jamky - hlavní, velký
+        planImage: '/courses/plany/2025-001R-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         images: [
           '/courses/jamka 1.jpg',
           '/courses/jamka 1 (2).jpg', 
@@ -37,7 +37,7 @@ export const courses: Course[] = [
         par: 5, 
         length: 520, 
         handicap: 13,
-        cedulePdf: '/courses/cedule/2025-002R-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-002R-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         holeNumber9: 2,
         holeNumber18: 2,
       },
@@ -46,7 +46,7 @@ export const courses: Course[] = [
         par: 3, 
         length: 165, 
         handicap: 17,
-        cedulePdf: '/courses/cedule/2025-003L-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-003L-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         holeNumber9: 3,
         holeNumber18: 3,
       },
@@ -55,7 +55,7 @@ export const courses: Course[] = [
         par: 4, 
         length: 410, 
         handicap: 3,
-        cedulePdf: '/courses/cedule/2025-004L-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-004L-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         holeNumber9: 4,
         holeNumber18: 4,
       },
@@ -64,7 +64,7 @@ export const courses: Course[] = [
         par: 4, 
         length: 395, 
         handicap: 11,
-        cedulePdf: '/courses/cedule/2025-005R-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-005R-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         images: [
           '/gkl fotografie doplneni/jamka 5.jpeg'
         ],
@@ -76,7 +76,7 @@ export const courses: Course[] = [
         par: 5, 
         length: 545, 
         handicap: 1,
-        cedulePdf: '/courses/cedule/2025-006L_PAR4-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-006L_PAR4-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější (PAR4 protože je to par 5)
         images: [
           '/gkl fotografie doplneni/jamka č6.jpeg'
         ],
@@ -88,7 +88,7 @@ export const courses: Course[] = [
         par: 3, 
         length: 180, 
         handicap: 15,
-        cedulePdf: '/courses/cedule/2025-007L-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-007L-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         images: [
           '/gkl fotografie doplneni/jamka 7.jpeg'
         ],
@@ -100,7 +100,7 @@ export const courses: Course[] = [
         par: 4, 
         length: 425, 
         handicap: 5,
-        cedulePdf: '/courses/cedule/2025-008L-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-008L-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         images: [
           '/gkl fotografie doplneni/jamka 8.jpeg'
         ],
@@ -112,7 +112,7 @@ export const courses: Course[] = [
         par: 4, 
         length: 400, 
         handicap: 9,
-        cedulePdf: '/courses/cedule/2025-009L-JAMKA_790x520_v2_preview.pdf',
+        planImage: '/courses/plany/2025-009L-JAMKA_790x520_v2_preview.jpg', // Nákres jamky - nejdůležitější
         images: [
           '/gkl fotografie doplneni/jamka 9.jpeg'
         ],

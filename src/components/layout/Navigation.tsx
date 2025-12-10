@@ -180,6 +180,10 @@ const Navigation: React.FC<NavigationProps> = ({ isMobileMenuOpen = false, setIs
             {/* Menu */}
             <div className="fixed top-16 sm:top-20 left-0 right-0 bg-white/98 backdrop-blur-md shadow-xl z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-neutral-light/50">
               <nav className="flex flex-col">
+                {/* Menu Title */}
+                <div className="px-6 py-4 border-b border-neutral-light/50">
+                  <h2 className="text-xl font-display font-bold text-primary-dark">Menu</h2>
+                </div>
                 {navItems.map((item) => {
                   const navPath = language === 'en' ? getNavPath(item.key, item.path) : getPath(item.path)
                   const isAnchor = language === 'en' && item.key !== 'home' && navPath.startsWith('#')

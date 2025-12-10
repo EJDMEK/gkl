@@ -8,10 +8,20 @@ import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi'
 const ContactPage: React.FC = () => {
   const { t } = useI18n()
 
-  const openingHours = [
+  const openingHoursGolf = [
     { day: 'Pondělí - Pátek', hours: '8:00 - 20:00' },
     { day: 'Sobota', hours: '7:00 - 20:00' },
     { day: 'Neděle', hours: '7:00 - 19:00' },
+  ]
+
+  const openingHoursReception = [
+    { day: 'Pondělí - Pátek', hours: '8:00 - 20:00' },
+    { day: 'Sobota', hours: '7:00 - 20:00' },
+    { day: 'Neděle', hours: '7:00 - 19:00' },
+  ]
+
+  const openingHoursDrivingRange = [
+    { day: 'Pondělí - Neděle', hours: '8:00 - 20:00' },
   ]
 
   return (
@@ -83,21 +93,62 @@ const ContactPage: React.FC = () => {
               </div>
             </Card>
 
-            {/* Opening Hours */}
+          </div>
+
+          {/* Opening Hours - Split into 3 sections */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+            {/* Golf Course Hours */}
             <Card>
-              <h2 className="text-2xl font-display font-bold text-primary-dark mb-6">
-                Otevírací doba
+              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
+                GOLFOVÉ HŘIŠTĚ
               </h2>
               <div className="space-y-3">
-                {openingHours.map((schedule, index) => (
+                {openingHoursGolf.map((schedule, index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
-                    <span className="text-neutral-dark">{schedule.day}</span>
-                    <span className="text-primary-dark font-medium">{schedule.hours}</span>
+                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
+                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Reception Hours */}
+            <Card>
+              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
+                RECEPCE
+              </h2>
+              <div className="space-y-3">
+                {openingHoursReception.map((schedule, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
+                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
+                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
+
+            {/* Driving Range Hours */}
+            <Card>
+              <h2 className="text-xl font-display font-bold text-primary-dark mb-4">
+                DRIVING RANGE
+              </h2>
+              <div className="space-y-3">
+                {openingHoursDrivingRange.map((schedule, index) => (
+                  <div key={index} className="flex justify-between items-center py-2 border-b border-neutral-light last:border-0">
+                    <span className="text-sm text-neutral-dark">{schedule.day}</span>
+                    <span className="text-sm text-primary-dark font-medium">{schedule.hours}</span>
                   </div>
                 ))}
               </div>
             </Card>
           </div>
+
+          {/* Opening Hours Note */}
+          <Card className="bg-primary/5 border-primary/20">
+            <p className="text-sm text-neutral-dark italic text-center">
+              * Otevírací doba se může lišit v závislosti na počasí a sezóně. Pro aktuální informace nás prosím kontaktujte.
+            </p>
+          </Card>
 
           {/* Map */}
           <Card className="overflow-hidden p-0">

@@ -14,6 +14,8 @@ import TournamentDetailPage from './pages/TournamentDetailPage'
 import ServicesPage from './pages/ServicesPage'
 import IndividualTrainingPage from './pages/IndividualTrainingPage'
 import YouthTrainingPage from './pages/YouthTrainingPage'
+import BavSeGolfemPage from './pages/BavSeGolfemPage'
+import TrainersPage from './pages/TrainersPage'
 import GalleryPage from './pages/GalleryPage'
 import ContactPage from './pages/ContactPage'
 import LoginPage from './pages/LoginPage'
@@ -56,6 +58,8 @@ function App() {
               <Route path="/cs/sluzby" element={<ServicesPage />} />
               <Route path="/cs/vyuka-golfu" element={<ServicesPage />} />
               <Route path="/cs/vyuka-golfu/individualni" element={<IndividualTrainingPage />} />
+              <Route path="/cs/vyuka-golfu/bav-se-golfem" element={<BavSeGolfemPage />} />
+              <Route path="/cs/vyuka-golfu/treneri" element={<TrainersPage />} />
               <Route path="/cs/vyuka-golfu/mladez" element={<YouthTrainingPage />} />
               <Route path="/cs/fotogalerie" element={<GalleryPage />} />
               <Route path="/cs/kontakt" element={<ContactPage />} />

@@ -4,8 +4,8 @@ export const leaders: ClubLeader[] = [
   {
     id: '1',
     name: 'Květoslav Strachota',
-    position: 'Prezident klubu',
-    bio: 'Prezident Golfového klubu Líšnice.',
+    position: 'Člen výboru',
+    bio: 'Člen výboru Golfového klubu Líšnice.',
     image: '/leaders/kvetoslav-strachota-vybor.jpg',
   },
   {
