@@ -9,47 +9,16 @@ import PageHero from '../components/ui/PageHero'
 import FilterButtons from '../components/ui/FilterButtons'
 import { courses } from '../data/courses'
 import { courseInfo } from '../data/courseInfo'
-import { FiInfo, FiFlag, FiTarget, FiX, FiChevronLeft, FiChevronRight, FiFileText, FiBook, FiShield } from 'react-icons/fi'
+import { FiInfo, FiFlag, FiTarget, FiFileText, FiBook, FiShield } from 'react-icons/fi'
 
 const CoursesPage: React.FC = () => {
   const { language } = useI18n()
   const selectedCourse = courses[0] // Championship hřiště
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
-  const [selectedHoleNumber, setSelectedHoleNumber] = useState<number | null>(null)
   const [selectedHole, setSelectedHole] = useState<number>(1) // Aktuálně zobrazená jamka (1-9)
   const [selectedFilter, setSelectedFilter] = useState<string>('all')
 
   const getPath = (path: string) => {
     return `/${language === 'cs' ? 'cs' : 'en'}${path}`
-  }
-
-
-  const openLightbox = (holeNumber: number, imageIndex: number) => {
-    setSelectedHoleNumber(holeNumber)
-    setSelectedImageIndex(imageIndex)
-  }
-
-  const closeLightbox = () => {
-    setSelectedImageIndex(null)
-    setSelectedHoleNumber(null)
-  }
-
-  const nextImage = () => {
-    if (selectedHoleNumber === null || selectedImageIndex === null) return
-    const hole = selectedCourse.holesDetail.find(h => h.number === selectedHoleNumber)
-    if (hole && hole.images) {
-      const nextIndex = (selectedImageIndex + 1) % hole.images.length
-      setSelectedImageIndex(nextIndex)
-    }
-  }
-
-  const prevImage = () => {
-    if (selectedHoleNumber === null || selectedImageIndex === null) return
-    const hole = selectedCourse.holesDetail.find(h => h.number === selectedHoleNumber)
-    if (hole && hole.images) {
-      const prevIndex = selectedImageIndex === 0 ? hole.images.length - 1 : selectedImageIndex - 1
-      setSelectedImageIndex(prevIndex)
-    }
   }
 
   const scrollToSection = (sectionId: string) => {
@@ -572,69 +541,6 @@ const CoursesPage: React.FC = () => {
       )}
 
       <Divider />
-
-      {/* Lightbox Modal */}
-      {selectedImageIndex !== null && selectedHoleNumber !== null && (() => {
-        const hole = selectedCourse.holesDetail.find(h => h.number === selectedHoleNumber)
-        if (!hole || !hole.images) return null
-        const currentImage = hole.images[selectedImageIndex]
-        
-        return (
-          <div
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-            onClick={closeLightbox}
-          >
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 text-white hover:text-secondary transition-colors z-10 p-2"
-              aria-label="Zavřít"
-            >
-              <FiX className="w-6 h-6" />
-            </button>
-            
-            {hole.images.length > 1 && (
-              <>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    prevImage()
-                  }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-secondary transition-colors duration-500 ease-out z-10 p-3 bg-black/50 rounded-full backdrop-blur-sm"
-                  aria-label="Předchozí"
-                >
-                  <FiChevronLeft className="w-6 h-6" />
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    nextImage()
-                  }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-secondary transition-colors z-10 p-3 bg-black/50 rounded-full backdrop-blur-sm"
-                  aria-label="Další"
-                >
-                  <FiChevronRight className="w-6 h-6" />
-                </button>
-              </>
-            )}
-            
-            <div 
-              className="relative max-w-7xl max-h-[90vh]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img 
-                src={currentImage} 
-                alt={`${hole.name || `Jamka ${hole.number}`} - foto ${selectedImageIndex + 1}`}
-                className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              />
-              {hole.images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm">
-                  {selectedImageIndex + 1} / {hole.images.length}
-                </div>
-              )}
-            </div>
-          </div>
-        )
-      })()}
 
       {/* CTA */}
       <Section className="bg-neutral-cream/70 py-4 md:py-6">
