@@ -4,7 +4,6 @@ import { useI18n } from '../i18n/i18n'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Divider from '../components/ui/Divider'
-import FlowerDecoration from '../components/ui/FlowerDecoration'
 import Button from '../components/ui/Button'
 import PageHero from '../components/ui/PageHero'
 import { tournaments2025, regularEvents } from '../data/tournaments2025'
@@ -132,7 +131,6 @@ const TournamentsPage: React.FC = () => {
               Pravidelné akce
             </h2>
             <div className="flex justify-center mb-4">
-              <FlowerDecoration size="sm" />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">

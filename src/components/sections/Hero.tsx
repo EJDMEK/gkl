@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from '../ui/Button'
-import FlowerDecoration from '../ui/FlowerDecoration'
 
 interface HeroProps {
   title: string
@@ -59,11 +58,6 @@ const Hero: React.FC<HeroProps> = ({
             </p>
           </div>
         )}
-        
-        {/* Dekorativní prvek pod podnadpisem - kytičky */}
-        <div className="flex justify-center mb-6 sm:mb-7 md:mb-8 lg:mb-10 group animate-fade-in-up animation-delay-200">
-          <FlowerDecoration size="sm" className="text-white/70" />
-        </div>
         
         {/* Tlačítka - vedle sebe na desktopu */}
         {(cta1 || cta2 || cta3) && (

@@ -1,5 +1,4 @@
 import React from 'react'
-import FlowerDecoration from './FlowerDecoration'
 
 interface PageHeroProps {
   title: string
@@ -30,11 +29,6 @@ const PageHero: React.FC<PageHeroProps> = ({
       
       {/* Hlavní obsah */}
       <div className="relative z-10 text-center text-neutral-beige px-4 sm:px-6 md:px-8 max-w-5xl mx-auto w-full">
-        {/* Dekorativní prvek nad nadpisem */}
-        <div className="flex justify-center mb-4">
-          <FlowerDecoration size="md" className="text-neutral-beige/80" />
-        </div>
-        
         {/* Nadpis */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-2 sm:mb-3 md:mb-4 text-balance leading-tight tracking-tight drop-shadow-lg text-neutral-beige">
           {title}
@@ -46,11 +40,6 @@ const PageHero: React.FC<PageHeroProps> = ({
             {subtitle}
           </p>
         )}
-        
-        {/* Dekorativní prvek pod nadpisem */}
-        <div className="flex justify-center mt-4 sm:mt-5 md:mt-6">
-          <FlowerDecoration size="sm" className="text-neutral-beige/70" />
-        </div>
       </div>
     </div>
   )

@@ -4,7 +4,6 @@ import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import Divider from '../components/ui/Divider'
-import FlowerDecoration from '../components/ui/FlowerDecoration'
 import PageHero from '../components/ui/PageHero'
 import FilterButtons from '../components/ui/FilterButtons'
 import { courses } from '../data/courses'
@@ -109,9 +108,6 @@ const CoursesPage: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-display font-bold text-primary-dark mb-2">
               Naše jamky mají jména
             </h2>
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           {/* Filtrování podle čísel jamek - nahoře */}
@@ -221,7 +217,6 @@ const CoursesPage: React.FC = () => {
                         Nákres jamky
                       </h4>
                       <div className="flex justify-center">
-                        <FlowerDecoration size="sm" />
                       </div>
                     </div>
                     <div className="w-full flex justify-center items-center bg-white rounded-xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-inner">

@@ -5,7 +5,6 @@ import Hero from '../components/sections/Hero'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
-import FlowerDecoration from '../components/ui/FlowerDecoration'
 import FacilitiesStatusBar from '../components/ui/FacilitiesStatusBar'
 import Divider from '../components/ui/Divider'
 import WeatherWidget from '../components/ui/WeatherWidget'
@@ -97,7 +96,6 @@ const HomePage: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="mb-4 sm:mb-6 flex justify-start"><FlowerDecoration size="sm" /></div>
               <p className="text-base sm:text-lg text-neutral-dark mb-4 sm:mb-6 leading-relaxed">
                 {t('home.about.description')}
               </p>
@@ -232,7 +230,6 @@ const HomePage: React.FC = () => {
                 <div key={month} className="animate-fade-in-up" style={{ animationDelay: `${monthIdx * 150}ms` }}>
                   <div className="mb-4">
                     <h3 className="text-2xl md:text-3xl font-heading font-semibold text-primary-dark mb-2 flex items-center gap-3">
-                      <FlowerDecoration size="sm" className="mx-2" />
                       {monthNames[month]}
                       <span className="text-lg font-normal text-neutral-dark">({tournaments.length})</span>
                     </h3>
@@ -300,7 +297,6 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-3">
               {t('home.membership.title')}
             </h2>
-            <div className="flex justify-center"><FlowerDecoration size="sm" /></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {memberships.map((membership, idx) => (

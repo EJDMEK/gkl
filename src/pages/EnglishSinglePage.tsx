@@ -2,7 +2,6 @@ import React from 'react'
 import Hero from '../components/sections/Hero'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
-import FlowerDecoration from '../components/ui/FlowerDecoration'
 import FacilitiesStatusBar from '../components/ui/FacilitiesStatusBar'
 import { courses } from '../data/courses'
 import { memberships } from '../data/memberships'
@@ -50,15 +49,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="about" className="bg-neutral-cream/70 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               About Golfový klub Líšnice
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -93,15 +86,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="course" className="bg-white/80 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               Our Championship Course
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -144,15 +131,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="pricing" className="bg-neutral-cream/70 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               Pricing
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           {/* Green Fee */}
@@ -220,15 +201,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="tournaments" className="bg-white/80 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               Upcoming Tournaments
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -271,15 +246,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="services" className="bg-neutral-cream/70 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               Golf Lessons & Services
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -336,15 +305,9 @@ const EnglishSinglePage: React.FC = () => {
       <Section id="contact" className="bg-white/80 py-12 md:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="md" />
-            </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-4">
               Contact Us
             </h2>
-            <div className="flex justify-center mt-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-8">

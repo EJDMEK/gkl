@@ -1,5 +1,4 @@
 import React from 'react'
-import FlowerDecoration from './FlowerDecoration'
 
 interface DividerProps {
   variant?: 'simple' | 'decorative' | 'image'
@@ -28,7 +27,7 @@ const Divider: React.FC<DividerProps> = ({ variant = 'image', className = '', fl
     return (
       <div className={`bg-neutral-cream/70 py-4 ${className}`}>
         <div className="container mx-auto px-4 md:px-6 flex justify-center">
-          <FlowerDecoration size="md" />
+          <div className="w-16 h-px bg-primary/20"></div>
         </div>
       </div>
     )
@@ -37,7 +36,7 @@ const Divider: React.FC<DividerProps> = ({ variant = 'image', className = '', fl
   return (
     <div className={`bg-neutral-cream/70 py-4 ${className}`}>
       <div className="container mx-auto px-4 md:px-6 flex justify-center">
-        <FlowerDecoration size="sm" />
+        <div className="w-16 h-px bg-primary/20"></div>
       </div>
     </div>
   )

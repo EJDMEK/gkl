@@ -3,7 +3,6 @@ import { useI18n } from '../i18n/i18n'
 import Section from '../components/ui/Section'
 import Card from '../components/ui/Card'
 import Divider from '../components/ui/Divider'
-import FlowerDecoration from '../components/ui/FlowerDecoration'
 import PageHero from '../components/ui/PageHero'
 import FilterButtons from '../components/ui/FilterButtons'
 import { clubHistory } from '../data/clubHistory'
@@ -79,9 +78,6 @@ const AboutPage: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-display font-bold text-primary-dark mb-4 text-center">
             O členství
           </h2>
-          <div className="flex justify-center mb-6">
-            <FlowerDecoration size="sm" />
-          </div>
           <Card>
             <div className="prose prose-sm max-w-none">
               <p className="text-neutral-dark mb-4 leading-relaxed">
@@ -374,7 +370,6 @@ const AboutPage: React.FC = () => {
                 Vedení se volí každé 4 roky
               </p>
               <div className="flex justify-center mb-6">
-                <FlowerDecoration size="sm" />
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
