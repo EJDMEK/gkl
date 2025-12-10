@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body text-neutral-dark;
+    background-color: #F8F6F2;
+    background-image: url('/warm-paper-texture.jpg');
+    background-size: 50% auto;
+    background-position: top left;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    position: relative;
+  }
+  
+  /* Minimální overlay pro zachování čitelnosti textu - textura je nyní velmi viditelná */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(248, 246, 242, 0.4);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  h1, h2 {
+    @apply font-display;
+  }
+  
+  h3, h4 {
+    @apply font-heading;
+  }
+  
+  /* Všechny textové elementy používají Crimson Text */
+  * {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  /* Font preview stránky - přepisují fonty */
+  .font-preview-1 {
+    font-family: 'Lora', serif;
+  }
+  
+  .font-preview-1 h1,
+  .font-preview-1 h2,
+  .font-preview-1 h3,
+  .font-preview-1 h4,
+  .font-preview-1 p,
+  .font-preview-1 span,
+  .font-preview-1 div {
+    font-family: 'Lora', serif;
+  }
+  
+  .font-preview-2 {
+    font-family: 'Merriweather', serif;
+  }
+  
+  .font-preview-2 h1,
+  .font-preview-2 h2,
+  .font-preview-2 h3,
+  .font-preview-2 h4,
+  .font-preview-2 p,
+  .font-preview-2 span,
+  .font-preview-2 div {
+    font-family: 'Merriweather', serif;
+  }
+  
+  .font-preview-3 {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  .font-preview-3 h1,
+  .font-preview-3 h2,
+  .font-preview-3 h3,
+  .font-preview-3 h4,
+  .font-preview-3 p,
+  .font-preview-3 span,
+  .font-preview-3 div {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  .font-preview-4 {
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  .font-preview-4 h1,
+  .font-preview-4 h2,
+  .font-preview-4 h3,
+  .font-preview-4 h4,
+  .font-preview-4 p,
+  .font-preview-4 span,
+  .font-preview-4 div {
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  .font-preview-5 {
+    font-family: 'EB Garamond', serif;
+  }
+  
+  .font-preview-5 h1,
+  .font-preview-5 h2,
+  .font-preview-5 h3,
+  .font-preview-5 h4,
+  .font-preview-5 p,
+  .font-preview-5 span,
+  .font-preview-5 div {
+    font-family: 'EB Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    /* Zajištění minimální velikosti touch targets */
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+    
+    /* Optimalizace textu pro mobily */
+    body {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    
+    /* Zlepšení čitelnosti na malých obrazovkách */
+    h1 {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+    }
+    
+    h4 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  }
+  
+  /* Touch-friendly hover states pro mobily */
+  @media (hover: none) and (pointer: coarse) {
+    button:hover, a:hover {
+      transform: none;
+    }
+    
+    button:active, a:active {
+      transform: scale(0.95);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .fade-in-down {
+    animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .slide-in-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .slide-in-right {
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .parallax {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F6F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A68B6F;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B7355;
+}
+
