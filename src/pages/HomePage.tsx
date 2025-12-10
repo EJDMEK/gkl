@@ -145,7 +145,6 @@ const HomePage: React.FC = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary-dark mb-2">
                 {t('home.news.title')}
               </h2>
-              <div className="flex justify-center"><FlowerDecoration size="sm" /></div>
             </div>
             <Link to={getPath(language === 'cs' ? '/aktuality' : '/news')}>
               <Button variant="tertiary" icon={<FiArrowRight />} iconPosition="right">
@@ -200,7 +199,6 @@ const HomePage: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-3">
                 Turnaje 2025
               </h2>
-              <div className="mb-6 flex justify-center"><FlowerDecoration size="sm" /></div>
               <p className="text-neutral-dark text-sm md:text-base max-w-2xl mx-auto">
                 Termínová listina pořádaných turnajů je průběžně aktualizována.
               </p>

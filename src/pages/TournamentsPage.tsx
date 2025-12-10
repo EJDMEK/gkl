@@ -195,9 +195,6 @@ const TournamentsPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-dark mb-3">
               Turnaje 2025
             </h2>
-            <div className="flex justify-center mb-4">
-              <FlowerDecoration size="sm" />
-            </div>
           </div>
           
           {Object.keys(groupedByMonth).length === 0 ? (
